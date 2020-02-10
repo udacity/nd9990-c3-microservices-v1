@@ -19,7 +19,7 @@ Correspondingly, the project is split into following parts:
 
 
 ## Dependencies and Getting Setup
-> _tip_: this frontend is designed to work with the RestAPI backends). It is recommended you stand up the backend first, test using Postman, and then the frontend should integrate.
+> _tip_: this frontend is designed to work with the RestAPI backends. It is recommended you stand up the backend first, test using Postman, and then the frontend should integrate.
 
 ### 1. Installing Node and NPM
 This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from [https://nodejs.com/en/download](https://nodejs.org/en/download/). Verify the installation of Node.js using following command in your "terminal" / "cmd": 
@@ -42,7 +42,7 @@ ionic serve
 
 
 ### 3. AWS RDS - PostgreSQL instance, Postbird tool, and an S3 bucket
-You'll need an AWS account to set up these resources. Create the [PostgreSQL instance on AWS](https://classroom.udacity.com/nanodegrees/nd9990/parts/5d4b2317-8333-47b3-a9ec-ea2cf0a3efbb/modules/ab95831d-3105-400e-9c49-01a9d85e5a65/lessons/a89390c2-0832-4de0-833f-2dcb929a665e/concepts/001c5798-6c84-448e-ad63-9281f0e2fabe) and install the [Postbird tool] (https://github.com/Paxa/postbird) to interact remotely with the database. Additionally, you'll need to [create an S3 filestore bucket in AWS] (https://classroom.udacity.com/nanodegrees/nd9990/parts/5d4b2317-8333-47b3-a9ec-ea2cf0a3efbb/modules/ab95831d-3105-400e-9c49-01a9d85e5a65/lessons/a89390c2-0832-4de0-833f-2dcb929a665e/concepts/a04068a9-6267-4c37-9eeb-a413949a48f2)
+You'll need an AWS account to set up these resources. Create the [PostgreSQL instance on AWS](https://classroom.udacity.com/nanodegrees/nd9990/parts/5d4b2317-8333-47b3-a9ec-ea2cf0a3efbb/modules/ab95831d-3105-400e-9c49-01a9d85e5a65/lessons/a89390c2-0832-4de0-833f-2dcb929a665e/concepts/001c5798-6c84-448e-ad63-9281f0e2fabe) and install the [Postbird tool](https://github.com/Paxa/postbird) to interact remotely with the database. Additionally, you'll need to [create an S3 filestore bucket in AWS](https://classroom.udacity.com/nanodegrees/nd9990/parts/5d4b2317-8333-47b3-a9ec-ea2cf0a3efbb/modules/ab95831d-3105-400e-9c49-01a9d85e5a65/lessons/a89390c2-0832-4de0-833f-2dcb929a665e/concepts/a04068a9-6267-4c37-9eeb-a413949a48f2)
 
 ### 4. Installing project dependencies
 This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository. After cloning, open your terminal and run:
