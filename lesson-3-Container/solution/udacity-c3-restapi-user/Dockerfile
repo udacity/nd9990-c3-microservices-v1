@@ -9,4 +9,4 @@ RUN npm ci
 # Bundle app source
 COPY . .
 EXPOSE 8080
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "prod" ]
