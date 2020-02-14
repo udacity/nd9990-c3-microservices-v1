@@ -1,53 +1,38 @@
-# Udagram Image Filtering Microservice
+## Lesson 4 - Kubernetes
+The exercises in this lesson are an extension of the exercises you have already done in the previous lesson - **"Containers"**.  We will use the same "Udagram" project, learn to manage the microservices running in separate containers using Kubernetes cluster. 
 
-Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
+## Exercise Instructions
+First, you need to watch the CDND - C3 - Lesson 4 - Kubernetes to understand the concepts. Then follow below instructions:
 
-The project is split into three parts:
-1. [The Simple Frontend](/udacity-c3-frontend)
-A basic Ionic client web application which consumes the RestAPI Backend. 
-2. [The RestAPI Feed Backend](/udacity-c3-restapi-feed), a Node-Express feed microservice.
-3. [The RestAPI User Backend](/udacity-c3-restapi-user), a Node-Express user microservice.
+### Instruction 1 - Clone the GitHub repo (if not already)
+Create a project folder in your local computer and clone the following Git repository - https://github.com/udacity/nd990-c3-microservices-v1
 
-## Getting Setup
-
-> _tip_: this frontend is designed to work with the RestAPI backends). It is recommended you stand up the backend first, test using Postman, and then the frontend should integrate.
-
-### Installing Node and NPM
-This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from [https://nodejs.com/en/download](https://nodejs.org/en/download/).
-
-### Installing Ionic Cli
-The Ionic Command Line Interface is required to serve and build the frontend. Instructions for installing the CLI can be found in the [Ionic Framework Docs](https://ionicframework.com/docs/installation/cli).
-
-### Installing project dependencies
-
-This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository. After cloning, open your terminal and run:
-```bash
-npm install
-```
->_tip_: **npm i** is shorthand for **npm install**
-
-### Setup Backend Node Environment
-You'll need to create a new node server. Open a new terminal within the project directory and run:
-1. Initialize a new project: `npm init`
-2. Install express: `npm i express --save`
-3. Install typescript dependencies: `npm i ts-node-dev tslint typescript  @types/bluebird @types/express @types/node --save-dev`
-4. Look at the `package.json` file from the RestAPI repo and copy the `scripts` block into the auto-generated `package.json` in this project. This will allow you to use shorthand commands like `npm run dev`
+To start with, go to the */lesson-4-Kubernetes/exercise/* directory. You would find the following sub-directories for each component of the project, as follows:
+1. *udacity-c3-frontend* - For Ionic client web application, which consumes the RestAPI Backend
+2. *udacity-c3-restapi-feed* - For "feed" microservice
+3. *udacity-c3-restapi-user* - For "user" microservice
+4. *udacity-c3-deployment/docker* - For running the Nginx as a reverse-proxy server
 
 
-### Configure The Backend Endpoint
-Ionic uses enviornment files located in `./src/enviornments/enviornment.*.ts` to load configuration variables at runtime. By default `environment.ts` is used for development and `enviornment.prod.ts` is used for produciton. The `apiHost` variable should be set to your server url either locally or in the cloud.
+### Instruction 2 - Create configuration files (`.yaml`) 
+Create a sub-directory with the name “k8s” (acronym for Kubernetes) at the path *lesson-4-Kubernetes/exercise/udacity-c3-deployment/*. Create the following configuration files:
+>* udacity-c3-deployment/k8s/reverseproxy-deployment.yaml
+>* udacity-c3-deployment/k8s/frontend-deployment.yaml
+>* udacity-c3-deployment/k8s/backend-user-deployment.yaml
+>* udacity-c3-deployment/k8s/backend-feed-deployment.yaml
+>* udacity-c3-deployment/k8s/pod-example/pod.yaml
 
-***
-### Running the Development Server
-Ionic CLI provides an easy to use development server to run and autoreload the frontend. This allows you to make quick changes and see them in real time in your browser. To run the development server, open terminal and run:
+Start - /lesson-4-Kubernetes/exercise/ directory
 
-```bash
-ionic serve
-```
+#### Solution 
+If you need help, you may refer to the **solution** available at */lesson-4-Kubernetes/solution/* directory
 
-### Building the Static Frontend Files
-Ionic CLI can build the frontend into static HTML/CSS/JavaScript files. These files can be uploaded to a host to be consumed by users on the web. Build artifacts are located in `./www`. To build from source, open terminal and run:
-```bash
-ionic build
-```
-***
+### Instruction 3 - Create Docker Images
+Create Docker images for all the services of your Udagram application.
+
+### Instruction 4 - Deploy Kubernetes Cluster
+First, set up a Kubernetes cluster with KubeOne. Second, deploy a pod and convert our pods into deployments. Use Kubernetes for the deployment. To achieve the above objectives, you need to execute the following task in order:
+* Create your first Kubernetes cluster on AWS with KubeOne [https://github.com/kubermatic/kubeone/blob/master/docs/quickstart-aws.md](https://github.com/kubermatic/kubeone/blob/master/docs/quickstart-aws.md)
+* Create a pod each for the feed, user, and frontend service
+* Convert the pod into a deployment
+* Deploy your Udagram microservices application in a Kubernetes Cluster 
