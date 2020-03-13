@@ -1,7 +1,7 @@
 version: "3"
 services:
   reverseproxy:
-      image: sudkul/reverseproxy
+      image: char2pie/reverseproxy
       ports:
           - 8080:8080
       restart: always
@@ -9,7 +9,7 @@ services:
         - backend-user
         - backend-feed     
   backend-user:
-    image: sudkul/udacity-restapi-user
+    image: char2pie/udacity-restapi-user
     volumes:
       - $HOME/.aws:/root/.aws
     environment:
@@ -23,7 +23,7 @@ services:
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
   backend-feed:
-    image: sudkul/udacity-restapi-feed
+    image: char2pie/udacity-restapi-feed
     volumes:
       - $HOME/.aws:/root/.aws
     environment:
@@ -37,6 +37,7 @@ services:
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
   frontend:
-    image: sudkul/udacity-frontend:local
+    image: char2pie/udacity-frontend:latest
     ports:
       - "8100:80"
+# docker-compose.yaml is used to start a series of containers, each from an image
