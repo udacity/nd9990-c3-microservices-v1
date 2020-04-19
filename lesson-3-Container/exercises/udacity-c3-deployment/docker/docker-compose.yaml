@@ -1,0 +1,42 @@
+version: "3"
+services:
+ reverseproxy:
+   image: dockerwinbox/reverseproxy
+   ports:
+     - 8080:8080
+   restart: always
+   depends_on:
+    - backend-user
+    - backend-feed   
+ backend-user:
+  image: dockerwinbox/udacity-restapi-user
+  volumes:
+   - c:\$HOMEPATH\.aws:/root/.aws
+  environment:
+   POSTGRES_USERNAME: $POSTGRES_USERNAME
+   POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+   POSTGRES_DATABASE: $POSTGRES_DATABASE
+   POSTGRES_HOST: $POSTGRES_HOST
+   AWS_REGION: $AWS_REGION
+   AWS_PROFILE: $AWS_PROFILE
+   AWS_BUCKET: $AWS_BUCKET
+   JWT_SECRET: $JWT_SECRET
+   URL: "http://localhost:8100"
+ backend-feed:
+  image: dockerwinbox/udacity-restapi-feed
+  volumes:
+   - c:\$HOMEPATH\.aws:/root/.aws
+  environment:
+   POSTGRES_USERNAME: $POSTGRES_USERNAME
+   POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+   POSTGRES_DATABASE: $POSTGRES_DATABASE
+   POSTGRES_HOST: $POSTGRES_HOST
+   AWS_REGION: $AWS_REGION
+   AWS_PROFILE: $AWS_PROFILE
+   AWS_BUCKET: $AWS_BUCKET
+   JWT_SECRET: $JWT_SECRET
+   URL: "http://localhost:8100"
+ frontend:
+  image: dockerwinbox/udacity-frontend
+  ports:
+   - "8100:80"

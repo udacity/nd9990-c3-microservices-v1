@@ -44,6 +44,11 @@ router.get('/:id',
     async (req: Request, res: Response) => {
     let { id } = req.params;
     const item = await FeedItem.findByPk(id);
+
+    if(item.url) {
+        item.url = AWS.getGetSignedUrl(item.url);
+    }
+
     res.send(item);
 });
 
