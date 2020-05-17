@@ -8,12 +8,18 @@ import bodyParser from 'body-parser';
 import { V0MODELS } from './controllers/v0/model.index';
 
 (async () => {
+  console.log("basladi")
   await sequelize.addModels(V0MODELS);
+  console.log("add models bitti")
   await sequelize.sync();
+  // await sequelize.sync({ force: true});
+  console.log("sync bitti")
 
   const app = express();
   const port = process.env.PORT || 8080; // default port to listen
   
+  console.log("listen basladi")
+
   app.use(bodyParser.json());
 
   //CORS Should be restricted

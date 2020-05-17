@@ -13,5 +13,13 @@ export const sequelize = new Sequelize({
 
   dialect: 'postgres',
   storage: ':memory:',
+  logging: console.log,
 });
+
+console.log("database information")
+console.log("__________________________")
+console.log(c.username);
+console.log(c.password);
+console.log(c.database);
+console.log(c.host);
 
