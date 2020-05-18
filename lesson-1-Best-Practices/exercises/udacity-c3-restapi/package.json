@@ -24,10 +24,14 @@
     "email-validator": "^2.0.4",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^7.9.0",
+    "marked": "^0.4.0",
+    "marked-terminal": "^3.2.0",
+    "mysql2": "^2.1.0",
+    "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.15.1",
-    "sequelize-typescript": "^0.6.9"
+    "sequelize-typescript": "^0.6.9",
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.26",
