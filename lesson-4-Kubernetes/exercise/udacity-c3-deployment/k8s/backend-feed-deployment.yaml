@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: backend-feed
+  name: backend-feed
+spec:
+  selector:
+      matchLabels:
+        service: backend-feed
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        service: backend-feed
+    spec:
+      containers:
+      - image: rguner/udacity-restapi-feed
+        name: backend-feed
+        imagePullPolicy: Always  
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"                  
+        env:
+        - name: URL
+          value: ""
+        - name: JWT_SECRET
+          value: "hello"
+        - name: POSTGRESS_DB
+          value: "rg_db"
+        - name: POSTGRESS_HOST
+          value: "rg_hostname"
+        - name: POSTGRESS_PASSWORD
+          value: "rg_pass"
+        - name: POSTGRESS_USERNAME
+          value: "rg_user"
+        - name: AWS_BUCKET
+          value: "rg_bucket"
+        - name: AWS_PROFILE
+          value: "default"
+        - name: AWS_REGION
+          value: "us-east-1"   
+      restartPolicy: Always

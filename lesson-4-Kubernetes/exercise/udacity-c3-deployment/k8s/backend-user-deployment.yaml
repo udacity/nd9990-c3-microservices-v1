@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: backend-user
+  name: backend-user
+spec:
+  selector:
+      matchLabels:
+        service: backend-user
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        service: backend-user
+    spec:
+      containers:
+      - image: rguner/udacity-restapi-user
+        name: backend-user 
+        imagePullPolicy: Always  
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"      
+        env:
+        - name: URL
+          value: ""
+        - name: JWT_SECRET
+          value: "hello"
+        - name: POSTGRESS_DB
+          value: "rg_db"
+        - name: POSTGRESS_HOST
+          value: "rg_host"
+        - name: POSTGRESS_PASSWORD
+          value: "rg_passwd"
+        - name: POSTGRESS_USERNAME
+          value: "rg_user"
+      restartPolicy: Always
+
+
