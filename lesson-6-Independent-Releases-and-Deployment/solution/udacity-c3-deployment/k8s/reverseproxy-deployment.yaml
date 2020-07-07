@@ -1,15 +1,18 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: reverseproxy
+    app: reverseproxy
   name: reverseproxy
 spec:
+  selector:
+    matchLabels:
+      app: reverseproxy
   replicas: 2
   template:
     metadata:
       labels:
-        service: reverseproxy
+        app: reverseproxy
     spec:
       containers:
       - image: adomhamza/reverseproxy
@@ -25,5 +28,3 @@ spec:
         ports:
         - containerPort: 8080
       restartPolicy: Always
-
-

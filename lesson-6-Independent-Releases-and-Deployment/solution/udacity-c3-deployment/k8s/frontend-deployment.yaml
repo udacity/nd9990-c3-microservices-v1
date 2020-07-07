@@ -1,15 +1,18 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: frontend
+    app: frontend
   name: frontend
 spec:
+  selector:
+    matchLabels:
+      app: frontend
   replicas: 2
   template:
     metadata:
       labels:
-        service: frontend
+        app: frontend
         api: external        
     spec:
       containers:
@@ -26,4 +29,3 @@ spec:
             memory: "1024Mi"
             cpu: "500m"                
       restartPolicy: Always
-
