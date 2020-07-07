@@ -4,8 +4,8 @@ metadata:
   name: pod-example
 spec:
   containers:
-  - image: reverseproxy
-    name: adomhamza/reverseproxy
+  - image: adomhamza/reverseproxy
+    name: reverseproxy
     imagePullPolicy: Always          
     resources:
       requests:
