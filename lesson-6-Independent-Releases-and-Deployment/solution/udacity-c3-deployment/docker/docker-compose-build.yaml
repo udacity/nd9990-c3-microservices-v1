@@ -15,4 +15,4 @@ services:
   frontend:
     build:
       context: ../../udacity-c3-frontend  
-    image: adomhamza/udacity-frontend:latest
+    image: adomhamza/udacity-frontend:local
