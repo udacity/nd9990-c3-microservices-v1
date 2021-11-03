@@ -1,4 +1,4 @@
-# nd990-c3-microservices-v1
+# nd990-c3-microservices-v1 Nanodegree
 This repository is associated with Cloud Developer ND - Course 03 - Monolith to Microservices. There are 6 lessons in this course. There is separate directory for each lesson.
 
 # About the Project - Udagram Image Filtering Microservice
